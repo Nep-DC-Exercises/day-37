@@ -3,3 +3,15 @@ ${data.map(ceo => `
     <li>${ceo.name}: ${ceo.year}</li>
     `).join('')}
 </ul>   
+
+<form action="/ceos/add" method="POST">
+    <!-- creating association between label and input -->
+    <label>Name of CEO
+        <input type="text" name="ceo_name" placeholder="CEO Name" />
+    </label>
+    <label>
+        Year
+        <input type="text" name="ceo_year" placeholder="CEO Year" />
+    </label>
+    <button type="submit">Add New CEO</button>
+</form>
