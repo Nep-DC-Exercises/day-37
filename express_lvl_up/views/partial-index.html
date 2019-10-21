@@ -1,12 +1,14 @@
 
 <form action="/add" method="POST">
 
-    ${topics.map(topic =>` 
+    ${topics.map((topic, index) =>` 
         <label>${topic.topic_name} 
             <div class="control">
                 <div class="select">
                 <select>
-                    ${ranking}
+                    ${ranking.map(skill =>
+                        skillsWithRanks[index].rank_name === skill.rank_name ? `<option selected value="">${skill.rank_name}</option>` : `<option value="">${skill.rank_name}</option>`
+                    )}
                 </select>
                 </div>
             </div>

@@ -3,25 +3,26 @@ const express = require("express"),
     model = require("../models/indexModel");
 
 router.get("/", async function(req, res, next) {
-    const modelData = await model.getTopics();
+    const topicNames = await model.getTopics();
     const rankingData = await model.getRankings();
     const joinedData = await model.getTopicRanking();
     console.log("Here's all the ranks... ", rankingData)
     console.log("Topic & Rank", joinedData);
 
-    const ranks = rankingData
-        .map(ranking => {
+    // const ranks = rankingData
+    //     .map(ranking => {
 
-            let option = `<option value=${ranking.rank_name}> ${ranking.rank_name}</option>`;
-            return option;
-        })
-        .join("");
+    //         let option = `<option value=${ranking.rank_name}> ${ranking.rank_name}</option>`;
+    //         return option;
+    //     })
+    //     .join("");
 
     res.render("template", {
         locals: {
             title: "Rankings",
-            topics: modelData,
-            ranking: ranks
+            topics: topicNames,
+            ranking: rankingData,
+            skillsWithRanks: joinedData
         },
         partials: {
             partial: "partial-index"

@@ -12,7 +12,7 @@ class Ranking {
 
     static async getRankings() {
         try {
-            const response = await db.any(`SELECT * FROM ranking;`);
+            const response = await db.any(`SELECT rank_name FROM ranking;`);
             return response;
         } catch (err) {
             return console.log("error", err);
