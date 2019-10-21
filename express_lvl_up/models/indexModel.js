@@ -1,7 +1,7 @@
 const db = require("./conn");
 
 class Ranking {
-    static async getOne() {
+    static async getTopics() {
         try {
             const response = await db.any(`SELECT * FROM topics;`);
             return response;
@@ -19,7 +19,7 @@ class Ranking {
         }
     }
 
-    static async joinTable() {
+    static async getTopicRanking() {
         try {
             const response = await db.any(
                 `SELECT t.topic_name, r.rank_name 
