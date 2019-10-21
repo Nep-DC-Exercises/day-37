@@ -5,9 +5,9 @@
         <label>${topic.topic_name} 
             <div class="control">
                 <div class="select">
-                <select>
+                <select name="formData">
                     ${ranking.map(skill =>
-                        skillsWithRanks[index].rank_name === skill.rank_name ? `<option selected value="">${skill.rank_name}</option>` : `<option value="">${skill.rank_name}</option>`
+                        skillsWithRanks[index].rank_name === skill.rank_name ? `<option selected value="${skill.id}">${skill.rank_name}</option>` : `<option value="${skill.id}">${skill.rank_name}</option>`
                     )}
                 </select>
                 </div>
