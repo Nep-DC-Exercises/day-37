@@ -10,6 +10,7 @@ class Executive {
     static async getAll() {
         try {
             const response = await db.any(`SELECT * FROM ceos;`);
+            console.log(response);
             return response;
         } catch (err) {
             return err.message;
